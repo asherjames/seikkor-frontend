@@ -2,11 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Router, Route, IndexRoute, hashHistory } from "react-router";
 
-import Archives from "./pages/Archives";
-import Featured from "./pages/Featured";
+import About from "./pages/About";
 import Layout from "./pages/Layout";
 import Photos from "./pages/Photos";
-import Settings from "./pages/Settings";
 
 const app = document.getElementById('app');
 
@@ -14,10 +12,8 @@ function run() {
 	ReactDOM.render(
 		<Router history={hashHistory}>
 			<Route path="/" component={Layout}>
-				<IndexRoute component={Featured}></IndexRoute>
-				<Route path="archives(/:article)" component={Archives}></Route>
-				<Route path="settings" component={Settings}></Route>
 				<Route path="photos" component={Photos}></Route>
+				<Route path="about" component={About}></Route>
 			</Route>
 		</Router>, 
 	app);

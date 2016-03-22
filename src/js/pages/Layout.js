@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
+import RaisedButton from "material-ui/lib/raised-button";
 
 export default class Layout extends React.Component {
   navigate() {
@@ -8,15 +9,14 @@ export default class Layout extends React.Component {
 
   render() {
     const { history } = this.props;
-    console.log(history.isActive("archives"));
+    const style = {
+      margin: 12,
+    };
     return(
       <div>
-        <h1>KillerNews.net</h1>
-        {this.props.children}
-        <Link to="archives" activeClassName="test">archives</Link>
-        <Link to="settings"><button class="btn btn-success">settings</button></Link>
-        <button onClick={this.navigate.bind(this)}>featured</button>
-        <Link to="photos"><button>photos</button></Link>
+        <h1>Seikkor</h1>
+        <Link to="photos"><RaisedButton label="Photos" secondary={true} style={style}/></Link>
+        <Link to="about"><RaisedButton label="About" primary={true} style={style}/></Link>
       </div>
     );
   }
