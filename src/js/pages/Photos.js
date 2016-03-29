@@ -5,26 +5,28 @@ import "photoswipe/dist/photoswipe.css";
 import "photoswipe/dist/default-skin/default-skin.css";
 
 export default class Photos extends React.Component {
-  
-  state = {
-    items: [
-      {
-        src: '../../images/1.jpg',
-        thumbnail: '../../images/1.jpg',
-        w: 4842,
-        h: 3648,
-        title: 'Image title 1'
-      },
-      {
-        src: '../../images/2.jpg',
-        thumbnail: '../../images/2.jpg',
-        w: 2810,
-        h: 2810,
-        title: 'Image title 2'
-      }
-    ],
-    options: {}
-  };
+  constructor() {
+    super();
+    this.images = {
+      items: [
+        {
+          src: '../../images/1.jpg',
+          thumbnail: '../../images/1.jpg',
+          w: 4842,
+          h: 3648,
+          title: 'Image title 1'
+        },
+        {
+          src: '../../images/2.jpg',
+          thumbnail: '../../images/2.jpg',
+          w: 2810,
+          h: 2810,
+          title: 'Image title 2'
+        }
+      ],
+      options: {}
+    };
+  }
 
   getThumbnailContent = (item) => {
     return (
@@ -36,7 +38,7 @@ export default class Photos extends React.Component {
     return(
       <div>
          <h2>Photos</h2>
-    	   <PhotoSwipeGallery items={this.state.items} thumbnailContent={this.getThumbnailContent}/>
+    	   <PhotoSwipeGallery items={this.images.items} thumbnailContent={this.getThumbnailContent}/>
       </div>
     );
   }
