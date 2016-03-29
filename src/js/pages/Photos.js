@@ -1,8 +1,7 @@
 import React from "react";
 import { PhotoSwipeGallery } from "react-photoswipe";
 
-import "photoswipe/dist/photoswipe.css";
-import "photoswipe/dist/default-skin/default-skin.css";
+import "react-photoswipe/dist/photoswipe.css";
 
 export default class Photos extends React.Component {
   constructor() {
@@ -10,17 +9,17 @@ export default class Photos extends React.Component {
     this.images = {
       items: [
         {
-          src: '../../images/1.jpg',
-          thumbnail: '../../images/1.jpg',
-          w: 4842,
-          h: 3648,
+          src: 'http://lorempixel.com/1500/1920/nature',
+          thumbnail: 'http://lorempixel.com/150/200/nature',
+          w: 1500,
+          h: 2000,
           title: 'Image title 1'
         },
         {
-          src: '../../images/2.jpg',
-          thumbnail: '../../images/2.jpg',
-          w: 2810,
-          h: 2810,
+          src: 'http://lorempixel.com/1400/1920/nature',
+          thumbnail: 'http://lorempixel.com/180/150/nature',
+          w: 1500,
+          h: 2000,
           title: 'Image title 2'
         }
       ],
@@ -30,7 +29,7 @@ export default class Photos extends React.Component {
 
   getThumbnailContent = (item) => {
     return (
-      <img src={item.thumbnail} width={120} height={90}/>
+      <img src={item.thumbnail}/>
     );
   }
 
