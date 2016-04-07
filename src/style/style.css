@@ -1,0 +1,12 @@
+@import url(https://fonts.googleapis.com/css?family=Arimo);
+
+#maintitle {
+	font-family: 'Arimo', sans-serif;
+	font-size: 500%;
+	text-align: center;
+	text-decoration: underline;
+}
+
+#navbuttons {
+	text-align: center;
+}
