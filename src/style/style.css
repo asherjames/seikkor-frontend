@@ -10,3 +10,11 @@
 #navbuttons {
 	text-align: center;
 }
+
+.pswp-thumbnail {
+  display: inline-block;
+  width: 120px;
+  height: 90px;
+  margin: 0 100px 100px 0;
+  cursor: pointer;
+}

@@ -21,7 +21,7 @@ export default class Photos extends React.Component {
           w: 1500,
           h: 2000,
           title: 'Image title 2'
-        }
+        },
       ],
       options: {}
     };
