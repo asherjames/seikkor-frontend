@@ -1,6 +1,6 @@
 import React from "react";
 import { PhotoSwipeGallery } from "react-photoswipe";
-import RSVP from "rsvp";
+import queryBackend from "../data/backend";
 
 import "react-photoswipe/dist/photoswipe.css";
 
@@ -14,16 +14,15 @@ export default class Photos extends React.Component {
     
   }
 
-  getImageInfo() {
+  getFilenames() {
     url = "http://localhost:8080/seikkor/photo/allphotoinfo";
-    let promise = new RSVP.Promise((resolve, reject) => {
-      let client = new XMLHttpRequest();
-      client.open("GET", url);
-      client.onreadystatechange = handler;
-      client.responseType = "json";
-      client.setRequestHeader("Accept", "application/json");
-      client.send();
-    })
+    queryBackend(url).then(createImageInfoArray, () => {
+      new Error("Promise error");
+    });
+  }
+
+  createImageInfoArray(filenames) {
+
   }
 
   getThumbnailContent = (item) => {
