@@ -8,7 +8,7 @@ export default function queryBackend(url) {
 		req.setRequestHeader("Accept", "application/json");
 		req.send();
 
-		successHandler = () => {
+		let successHandler = () => {
 			if (req.status === 200) {
 				resolve(req.responseText);
 			} else {
@@ -16,7 +16,7 @@ export default function queryBackend(url) {
 			}
 		}
 
-		errorHandler = () => {
+		let errorHandler = () => {
 			reject(new Error("Req to " + url + " failed"));
 		}
 	});

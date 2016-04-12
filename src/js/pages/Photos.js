@@ -11,18 +11,18 @@ export default class Photos extends React.Component {
   }
 
   componentDidMount() {
-    
+    this.getFilenames();
   }
 
   getFilenames() {
-    url = "http://localhost:8080/seikkor/photo/allphotoinfo";
-    queryBackend(url).then(createImageInfoArray, () => {
+    let url = "http://localhost:8080/seikkor/photo/allphotoinfo";
+    queryBackend(url).then(this.createImageInfoArray, () => {
       new Error("Promise error");
     });
   }
 
   createImageInfoArray(filenames) {
-
+    console.log(filenames);
   }
 
   getThumbnailContent = (item) => {
@@ -35,7 +35,7 @@ export default class Photos extends React.Component {
     return(
       <div>
          <h2>Photos</h2>
-    	   <PhotoSwipeGallery items={this.images.items} thumbnailContent={this.getThumbnailContent}/>
+    	   <PhotoSwipeGallery items={this.state.images} thumbnailContent={this.getThumbnailContent}/>
       </div>
     );
   }
