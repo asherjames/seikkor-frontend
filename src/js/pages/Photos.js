@@ -16,7 +16,7 @@ export default class Photos extends React.Component {
 
   getFilenames() {
     let url = "http://localhost:8080/seikkor/photo/allphotoinfo";
-    queryBackend(url).then(this.createImageInfoArray, () => {
+    queryBackend(url).then(this.createImageInfoArray.bind(this), () => {
       new Error("Promise error");
     });
   }
@@ -24,10 +24,9 @@ export default class Photos extends React.Component {
   createImageInfoArray(filenames) {
     let baseFullsizeUrl = "http://localhost:8080/images/fullsize/";
     let baseThumbnailUrl = "http://localhost:8080/images/thumbnail/";
-    console.log(filenames);
     filenames.map(p => p.src = baseFullsizeUrl.concat(p.src));
     filenames.map(p => p.thumbnail = baseThumbnailUrl.concat(p.thumbnail));
-    setState({images: filenames});
+    this.setState({images: filenames});
   }
 
   getThumbnailContent(item) {
