@@ -7,7 +7,7 @@ import "react-photoswipe/dist/photoswipe.css";
 export default class Photos extends React.Component {
   constructor() {
     super();
-    this.state = { images:[]}
+    this.state = {images: []};
   }
 
   componentDidMount() {
@@ -22,10 +22,15 @@ export default class Photos extends React.Component {
   }
 
   createImageInfoArray(filenames) {
+    let baseFullsizeUrl = "http://localhost:8080/images/fullsize/";
+    let baseThumbnailUrl = "http://localhost:8080/images/thumbnail/";
     console.log(filenames);
+    filenames.map(p => p.src = baseFullsizeUrl.concat(p.src));
+    filenames.map(p => p.thumbnail = baseThumbnailUrl.concat(p.thumbnail));
+    setState({images: filenames});
   }
 
-  getThumbnailContent = (item) => {
+  getThumbnailContent(item) {
     return (
       <img src={item.thumbnail}/>
     );
