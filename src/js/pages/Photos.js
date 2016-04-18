@@ -1,10 +1,11 @@
 import React from "react";
 import { PhotoSwipeGallery } from "react-photoswipe";
-import queryBackend from "../data/backend";
+import queryBackend from "../data/Backend";
+import {maxThumbWidth, maxThumbHeight} from "../data/ThumbnailSizes";
 
 import "react-photoswipe/dist/photoswipe.css";
 
-export default class Photos extends React.Component {
+export default class Photos extends React.Component {  
   constructor() {
     super();
     this.state = {images: []};
@@ -38,7 +39,6 @@ export default class Photos extends React.Component {
   render() {
     return(
       <div>
-         <h2>Photos</h2>
     	   <PhotoSwipeGallery items={this.state.images} thumbnailContent={this.getThumbnailContent}/>
       </div>
     );
