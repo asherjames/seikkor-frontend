@@ -26,8 +26,10 @@
     "css-loader": "^0.23.1",
     "file-loader": "^0.8.5",
     "material-ui": "^0.15.0-alpha.2",
+    "node-sass": "^3.6.0",
     "react-photoswipe": "^0.5.1",
     "react-tap-event-plugin": "^0.2.2",
+    "sass-loader": "^3.2.0",
     "style-loader": "^0.13.0"
   },
   "scripts": {
