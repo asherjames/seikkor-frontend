@@ -15,15 +15,15 @@ export default class Photos extends React.Component {
   }
 
   getFilenames() {
-    let url = "http://localhost:8080/seikkor/photo/allphotoinfo";
+    let url = "http://seikkor:8080/seikkor/photo/allphotoinfo";
     queryBackend(url).then(this.createImageInfoArray.bind(this), () => {
       new Error("Promise error");
     });
   }
 
   createImageInfoArray(filenames) {
-    let baseFullsizeUrl = "http://localhost:8080/images/fullsize/";
-    let baseThumbnailUrl = "http://localhost:8080/images/thumbnail/";
+    let baseFullsizeUrl = "http://seikkor:8080/images/fullsize/";
+    let baseThumbnailUrl = "http://seikkor:8080/images/thumbnail/";
     filenames.map(p => p.src = baseFullsizeUrl.concat(p.src));
     filenames.map(p => p.thumbnail = baseThumbnailUrl.concat(p.thumbnail));
     this.setState({images: filenames});
@@ -37,7 +37,7 @@ export default class Photos extends React.Component {
 
   render() {
     return(
-      <div>
+      <div id="images-div">
     	   <PhotoSwipeGallery items={this.state.images} thumbnailContent={this.getThumbnailContent}/>
       </div>
     );
