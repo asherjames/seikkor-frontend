@@ -1,7 +1,7 @@
 # seikkor-frontend
 Front-end for personal photo website.
 
-Works with an accompanying backend API for image sizes and names.  Uses photoswipe-react for image gallery animations.  Built using React and Webpack.
+Works with an accompanying backend API for image sizes and names.  Uses photoswipe-react for image gallery animations.  Built using React with Material-UI components.
 
 ###Install
 ```
