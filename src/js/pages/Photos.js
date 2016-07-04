@@ -1,6 +1,7 @@
 import React from "react";
 import { PhotoSwipeGallery } from "react-photoswipe";
 import queryBackend from "../data/Backend";
+import axios from "axios";
 
 import "react-photoswipe/dist/photoswipe.css";
 
@@ -17,9 +18,11 @@ export default class Photos extends React.Component {
 
   getFilenames() {
     let url = this.baseUrl + "seikkor/photo/allphotoinfo";
-    queryBackend(url).then(this.createImageInfoArray.bind(this), () => {
-      new Error("Promise error");
-    });
+    axios.get(url)
+      .then(this.createImageInfoArray.bind(this))
+      .catch((err) => {
+        throw new Error("Error fetching image data", err);
+      });
   }
 
   createImageInfoArray(filenames) {
